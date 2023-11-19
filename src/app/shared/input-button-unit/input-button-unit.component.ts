@@ -7,23 +7,29 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   imports: [
     CommonModule,
   ],
-  template: `<p>input-button-unit works!</p>`,
-  styleUrls: ['./input-button-unit.component.css'],
+  template: `
+    <input #inputElementRef [value]="title"
+    (keyup.enter)="changeTitle(inputElementRef)">
+
+<button (click)="changeTitle(inputElementRef)">
+  Save
+</button>
+  `,
+  styleUrls: ['./input-button-unit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputButtonUnitComponent implements OnInit {
   title: string = 'Hello World';
 
   constructor() {
-    this.title = 'I Love Angular';
-    this.changeTitle('My First Angular App');
   }
 
   ngOnInit(): void {
-    this.title = 'Angular CLI Rules!';
   }
-  changeTitle(newTitle: string) {
-    console.log(newTitle);
-    this.title = newTitle;
+  changeTitle(inputElementReference) {
+    this.title = inputElementReference.value;
+  }
+  getInputValue(event: Event) {
+    return (event.target as HTMLInputElement).value;
   }
 }
