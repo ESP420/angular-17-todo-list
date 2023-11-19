@@ -9,15 +9,7 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
   selector: 'app-list-manager',
   standalone: true,
   imports: [CommonModule, RouterOutlet, InputButtonUnitComponent, TodoItemComponent],
-  template: `
-    <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
-
-    <ul>
-      <li *ngFor="let todoItem of todoList">
-        <app-todo-item [item]="todoItem"></app-todo-item>
-      </li>
-    </ul>
-  `,
+  templateUrl: './list-manager.component.html',
   styleUrls: ['./list-manager.component.scss']
 })
 export class ListManagerComponent implements OnInit {

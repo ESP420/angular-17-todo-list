@@ -7,9 +7,12 @@ import { ListManagerComponent } from './shared/list-manager/list-manager.compone
   standalone: true,
   imports: [ListManagerComponent],
   template: `
-  <h1>
+  <div class="app-title">
+  <h1 >
     Welcome to {{ title }}!
   </h1>
+  
+  </div>
   <app-list-manager></app-list-manager>`,
   styleUrl: './app.component.scss'
 })

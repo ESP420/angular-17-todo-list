@@ -8,11 +8,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from
     CommonModule,
   ],
   template: `
-    <input #inputElementRef
+    <input #inputElementRef class="todo-input"
          [value]="title"
          (keyup.enter)="submitValue(getInputValue($event))">
 
-  <button (click)="submitValue(inputElementRef.value)">
+  <button class="btn" (click)="submitValue(inputElementRef.value)">
   Save
 </button>
   `,

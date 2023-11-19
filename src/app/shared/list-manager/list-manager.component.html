@@ -1,0 +1,26 @@
+<div class="container-todo">
+    <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
+    <div class="grid-list">
+        <div>
+            <ul>
+                <li *ngFor="let todoItem of todoList">
+                    <app-todo-item [item]="todoItem"></app-todo-item>
+                </li>
+
+            </ul>
+        </div>
+        <div>
+            <ul>
+                @for (item of todoList; track $index) {
+                <li>
+                    <app-todo-item [item]="item" />
+                </li>
+                }
+                @empty {
+                <li>empty records</li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>

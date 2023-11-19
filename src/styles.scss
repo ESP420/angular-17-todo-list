@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background: rgb(188,242,227);
+background: radial-gradient(circle, rgba(188,242,227,1) 0%, rgba(99,103,236,1) 100%);
+    font-size: 16px;
+    color: #404040;
+    font-family: 'Lucida Grande', Verdana, sans-serif;
+  }
+.container-todo{
+    text-align: center;
+    
+}
+ol, ul {
+    list-style: none;
+  }
+  .btn {
+    background: rgb(39, 141, 136);
+    color: #fff;
+    padding: 3px 10px;
+    margin: 0 0 0 3px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 24px;
+    cursor: pointer;
+    vertical-align: bottom;
+  }
+  
+  .btn:hover {
+    background:lightseagreen;
+  }
+  
+  .btn-red {
+    background: red;
+  }
+  
+  .btn-red:hover {
+    background: darkred;
+  }
+  
+  .app-title {
+    font-size: 25px;
+    color: rgb(56, 143, 143);
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: -0.8px;
+  }
