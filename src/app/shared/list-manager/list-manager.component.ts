@@ -5,6 +5,7 @@ import { InputButtonUnitComponent } from '../input-button-unit/input-button-unit
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoListService } from '../../services/todo-list.service';
 import { TodoItem } from '../../interfaces/todo-item';
+import { TodoList } from '../../interfaces/todo-list';
 
 @Component({
   selector: 'app-list-manager',
@@ -15,7 +16,7 @@ import { TodoItem } from '../../interfaces/todo-item';
 })
 export class ListManagerComponent implements OnInit {
 
-  todoList!: TodoItem[]
+  todoList!: TodoList[]
   constructor(private todoListService: TodoListService) {
     this.todoList = this.todoListService.getTodoList();
     console.log(this.todoList)
@@ -24,13 +25,13 @@ export class ListManagerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addItem(title: string): void {
-    this.todoListService.addItem(title)
+  addTodoList(title: string): void {
+    this.todoListService.addTodoList(title)
   }
-  removeItem(item): void {
-    this.todoListService.deleteItem(item)
+  removeTodoList(todoList): void {
+    this.todoListService.deleteTodoList(todoList)
   }
-  updateItem(item: TodoItem, changes: TodoItem) {
-    this.todoListService.updateItem(item, changes);
+  updateTodoList(todoList: TodoList, changes: TodoList) {
+    this.todoListService.updateTodoList(todoList, changes);
   }
 }
