@@ -18,9 +18,12 @@ const defaultTodoList: TodoItem[] = [
 export class TodoListService {
 
   todoList: TodoItem[];
-  constructor(private storageService: StorageService) { }
+  constructor(private storageService: StorageService) {
+    this.todoList =
+      storageService.getData(todoListStorageKey) || defaultTodoList;
+  }
   public getTodoList(): Array<TodoItem> {
-    return this.storageService.getData("todoList") || defaultTodoList;
+    return this.todoList;;
   }
   public addItem(title: string): void {
     this.todoList.push({ title });

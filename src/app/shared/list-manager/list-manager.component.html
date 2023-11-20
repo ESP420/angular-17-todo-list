@@ -1,19 +1,21 @@
 <div class="container-todo">
-    <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
+    <app-input-button-unit (submit)="addItem($event)" />
     <div class="grid-list ">
         <div class="todo-app">
             <ul>
                 <li *ngFor="let todoItem of todoList">
-                    <app-todo-item [item]="todoItem"></app-todo-item>
+                    <app-todo-item [item]="todoItem" (remove)="removeItem($event)"
+                        (update)="updateItem($event.item, $event.changes)" />
                 </li>
 
             </ul>
         </div>
         <div class="todo-app">
             <ul>
-                @for (item of todoList; track $index) {
+                @for (todoItem of todoList; track $index) {
                 <li>
-                    <app-todo-item [item]="item" />
+                    <app-todo-item [item]="todoItem" (remove)="removeItem($event)"
+                        (update)="updateItem($event.item, $event.changes)" />
                 </li>
                 }
                 @empty {
