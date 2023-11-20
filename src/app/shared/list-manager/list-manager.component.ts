@@ -24,6 +24,6 @@ export class ListManagerComponent implements OnInit {
   }
 
   addItem(title: string): void {
-    this.todoList.push({ title });
+    this.todoListService.addItem(title)
   }
 }
