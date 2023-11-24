@@ -21,7 +21,7 @@ export class TodoListService {
     return this.todoList;
   }
   public addTodoList(title: string): void {
-    let todoItems: TodoItem[];
+    let todoItems: TodoItem[] = [];
     this.todoList.push({ title, todoItems });
     this.saveTodoList()
   }
@@ -37,6 +37,28 @@ export class TodoListService {
   public deleteTodoList(item): void {
     const index = this.todoList.indexOf(item);
     this.todoList.splice(index, 1);
+    this.saveTodoList()
+  }
+
+  addItem(list, title: string): void {
+    const indexList = this.todoList.indexOf(list);
+    this.todoList[indexList].todoItems.push({ title });
+    this.saveTodoList()
+  }
+  public updateItem(list: TodoList, item: TodoItem, changes: TodoItem): void {
+    const indexList = this.todoList.indexOf(list);
+    const indexItem = this.todoList[indexList].todoItems.indexOf(item);
+    /* using spread operation:
+    - new oject is constructed.
+    - overridden the similar keys of index whit the values of changes 
+    - adding new key if not exist in item */
+    this.todoList[indexList].todoItems[indexItem] = { ...item, ...changes };
+    this.saveTodoList()
+  }
+  public deleteItem(list, item): void {
+    const indexList = this.todoList.indexOf(list);
+    const indexItem = this.todoList[indexList].todoItems.indexOf(item);
+    this.todoList[indexList].todoItems.splice(indexItem, 1);
     this.saveTodoList()
   }
 

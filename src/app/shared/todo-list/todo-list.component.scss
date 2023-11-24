@@ -1,0 +1,27 @@
+.todo-list {
+    padding: 10px 20px;
+    min-height: 30px;
+    line-height: 30px;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .todo-checkbox {
+    flex-shrink: 0;
+    margin: auto 1ex auto 0;
+  }
+  
+  .todo-title {
+    flex-grow: 1;
+    padding-left: 11px;
+  }
+  .todo-complete {
+    text-decoration: line-through;
+  }
+   /* Modal Header */
+    .todo-header { padding: 2px; color: #333; }
+     /* Modal Close Button */
+     .todo-close { color: #aaa; float: right; font-size: 28px; font-weight: bold; } 
+     .todo-close:hover, 
+     .todo-close:focus { color: black; text-decoration: none; cursor: pointer; } 

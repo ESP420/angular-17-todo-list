@@ -13,12 +13,14 @@
         </div> -->
         @for (list of todoList; track $index) {
         <div class="todo-app">
-            <div class="todo-title">{{list.title}}</div>
+            <app-todo-list [list]="list" (remove)="removeTodoList($event)"
+                (update)="updateTodoList($event.item, $event.changes)" />
+            <app-input-button-unit (submit)="addItem(list,$event)" />
             <ul>
                 @for (todoItem of list.todoItems; track $index) {
                 <li>
-                    <app-todo-item [item]="todoItem" (remove)="removeTodoList($event)"
-                        (update)="updateTodoList($event.item, $event.changes)" />
+                    <app-todo-item [item]="todoItem" (remove)="removeItem(list,$event)"
+                        (update)="updateItem(list,$event.item, $event.changes)" />
                 </li>
                 }
                 @empty {
